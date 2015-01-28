@@ -1,4 +1,4 @@
-var allPics = ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg", "8.jpg", "9.jpg", "10.jpg", "11.jpg", "12.jpg", "13.jpg", "14.jpg"]
+var allPics = ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg", "8.jpg", "9.jpg", "10.jpg", "11.jpg", "12.jpg", "13.jpg", "14.jpg", "15.png", "17.png", "19.jpg"]
 var imgArr = [];
 var imgIndex = 0;
 var screenWidth = $(window).width();
@@ -14,13 +14,13 @@ $(document).ready(function(){
 
 var addPic = function(){
 
-	// ((Math.random() + .4)/2) * screenWidth;
-	var xPos = (1.4 * (((Math.random() + .15)/2) * screenWidth)) - 50;
-	// var xPos = Math.abs(Math.floor((Math.random()) * screenWidth) - 200);
-	var yPos = Math.floor(Math.random() * 150);
-	// var imgWidth = 100+ Math.floor(Math.random() * 200);
-	var imgWidth = 5 * (((Math.random() + .5)/2) * 100);
+
+	var xPos = randomRange(10, screenWidth - 150);
+	var yPos = randomRange(10, 150);
+	var imgWidth = randomRange(150, 300);
+	
 	var imgPath = "img/" + allPics[imgIndex];
+	
 	if (imgIndex != allPics.length - 1) {
 		imgIndex++;
 	} else {
@@ -73,4 +73,9 @@ var shuffle = function(array) {
   }
 
   return array;
+}
+
+// http://stackoverflow.com/questions/1527803/generating-random-numbers-in-javascript-in-a-specific-range
+var randomRange = function(min, max) {
+    return Math.random() * (max - min) + min;
 }
