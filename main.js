@@ -14,9 +14,12 @@ $(document).ready(function(){
 
 var addPic = function(){
 
-	var xPos = Math.abs(Math.floor((Math.random()) * screenWidth) - 200);
-	var yPos = Math.floor(Math.random() * 500);
-	var imgWidth = 100+ Math.floor(Math.random() * 200);
+	// ((Math.random() + .4)/2) * screenWidth;
+	var xPos = (1.4 * (((Math.random() + .15)/2) * screenWidth)) - 50;
+	// var xPos = Math.abs(Math.floor((Math.random()) * screenWidth) - 200);
+	var yPos = Math.floor(Math.random() * 300);
+	// var imgWidth = 100+ Math.floor(Math.random() * 200);
+	var imgWidth = 5 * (((Math.random() + .5)/2) * 100);
 	var imgPath = "img/" + allPics[imgIndex];
 	if (imgIndex != allPics.length - 1) {
 		imgIndex++;
@@ -25,7 +28,7 @@ var addPic = function(){
 	}
 
 	var imgHolder = $("<div></div>");
-	imgHolder.css({'position': 'absolute', 'left': xPos, 'top': yPos, 'display': 'inline'});
+	imgHolder.css({'position': 'absolute', 'left': xPos, 'bottom': yPos, 'display': 'inline'});
 	
 	var imgElement = $("<img>");
 	imgElement.attr("src", imgPath);
