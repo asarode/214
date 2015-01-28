@@ -17,7 +17,7 @@ var addPic = function(){
 	// ((Math.random() + .4)/2) * screenWidth;
 	var xPos = (1.4 * (((Math.random() + .15)/2) * screenWidth)) - 50;
 	// var xPos = Math.abs(Math.floor((Math.random()) * screenWidth) - 200);
-	var yPos = Math.floor(Math.random() * 300);
+	var yPos = Math.floor(Math.random() * 150);
 	// var imgWidth = 100+ Math.floor(Math.random() * 200);
 	var imgWidth = 5 * (((Math.random() + .5)/2) * 100);
 	var imgPath = "img/" + allPics[imgIndex];
