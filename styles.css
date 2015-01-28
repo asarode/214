@@ -1,0 +1,22 @@
+.header {
+	background-color: #fafafa;
+	height: 100vh;
+	position: relative;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.header-bottom {
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	text-align: center;
+	padding-bottom: 30px;
+}
+
+.scroll-arrow {
+	width: 30px;
+}
