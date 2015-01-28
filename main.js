@@ -5,6 +5,7 @@ var screenWidth = $(window).width();
 
 $(document).ready(function(){
 
+	allPics = shuffle(allPics);
 	var timer = setInterval(function(){
 		addPic();
 	}, 2000);
@@ -13,7 +14,7 @@ $(document).ready(function(){
 
 var addPic = function(){
 
-	var xPos = Math.floor((Math.random() - .2) * screenWidth);
+	var xPos = Math.abs(Math.floor((Math.random()) * screenWidth) - 200);
 	var yPos = Math.floor(Math.random() * 500);
 	var imgWidth = 100+ Math.floor(Math.random() * 200);
 	var imgPath = "img/" + allPics[imgIndex];
@@ -22,23 +23,51 @@ var addPic = function(){
 	} else {
 		imgIndex = 0;
 	}
+
+	var imgHolder = $("<div></div>");
+	imgHolder.css({'position': 'absolute', 'left': xPos, 'top': yPos, 'display': 'inline'});
 	
 	var imgElement = $("<img>");
 	imgElement.attr("src", imgPath);
-	imgElement.css({'z-index': '0', 'display': 'none', 'width': imgWidth, 'position': 'absolute', 'left': xPos, 'top': yPos});
+	imgElement.addClass('img-fun');
+	imgElement.css({'display': 'none', 'width': imgWidth, 'position': 'relative'});
 
 	if(imgArr.length < 5){
 		imgArr.unshift(imgElement);
-		$('.header').append(imgElement);
+		$('.header').append(imgHolder);
+		imgHolder.append(imgElement);
 		imgElement.fadeIn("slow");
 	} else {
 		imgArr.pop().fadeOut("slow", function() {
+			var pdiv = $(this).parent();
 			$(this).remove();
+			pdiv.remove();
 		});
 		imgArr.unshift(imgElement);
-		$('.header').append(imgElement);
+		$('.header').append(imgHolder);
+		imgHolder.append(imgElement);
 		imgElement.fadeIn("slow");
 	}
 
 		
 };
+
+// http://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+var shuffle = function(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex ;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}

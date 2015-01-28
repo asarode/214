@@ -20,3 +20,20 @@
 .scroll-arrow {
 	width: 30px;
 }
+
+.img-fun {
+	animation: move 11s ease;
+	-webkit-animation: move 11s ease;
+	/*transition: position 10s linear;
+	bottom: 100px;*/
+}
+
+@keyframes move{
+	from { bottom: 0;}
+	to {bottom: 200px;}
+}
+
+@-webkit-keyframes move{
+	from { bottom: 0;}
+	to {bottom: 200px;}
+}
