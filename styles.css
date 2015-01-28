@@ -75,3 +75,17 @@ body {
 	from { bottom: 0;}
 	to {bottom: 200px;}
 }
+
+@media (max-width: 500px) {
+  .ditto {
+  	width: 300px;
+  }
+
+  .hero {
+  	font-size: 4em;
+  }
+
+  .sucks {
+	font-size: 3.2em;
+  }
+}
